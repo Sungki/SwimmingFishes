@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public GameObject target;
+    public float speed = 2f;
     Vector3 velocity;
 
     void Update()
@@ -17,6 +18,6 @@ public class FollowTarget : MonoBehaviour
 
         velocity = targetPos - transform.position;
         velocity.z = transform.position.z;
-        transform.position = transform.position + velocity * Time.deltaTime * 2f;
+        transform.position = transform.position + velocity * Time.deltaTime * speed;
     }
 }
