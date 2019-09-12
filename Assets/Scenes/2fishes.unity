@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931216701}
+  speed: 2
 --- !u!212 &60449536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1185554586}
+  speed: 2
 --- !u!212 &77312694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -538,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1185554586}
+  speed: 2
 --- !u!212 &93650698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -672,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931216701}
+  speed: 2
 --- !u!212 &299109289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1163,6 +1167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05c623c3913e384fa37c6f454731fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fish:
+  - {fileID: 1817850617}
+  - {fileID: 1804443852}
+  - {fileID: 77312690}
+  - {fileID: 93650694}
+  - {fileID: 1594661019}
 --- !u!1 &1288316211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931216701}
+  speed: 2
 --- !u!212 &1288316215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1367,6 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931216701}
+  speed: 2
 --- !u!212 &1378065746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1661,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1185554586}
+  speed: 2
 --- !u!212 &1594661023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1875,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931216701}
+  speed: 2
 --- !u!212 &1715759120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2009,6 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1185554586}
+  speed: 2
 --- !u!212 &1804443856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2250,6 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1185554586}
+  speed: 2
 --- !u!58 &1817850621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2553,6 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1fc925f2c65bd4baa90de4a04c0731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bRight: 0
 --- !u!1 &1973981088
 GameObject:
   m_ObjectHideFlags: 0
