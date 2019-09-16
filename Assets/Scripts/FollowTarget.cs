@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public GameObject target;
-    public float speed = 2f;
+    public float speed = 5f;
     Vector3 velocity;
 
     void Update()
