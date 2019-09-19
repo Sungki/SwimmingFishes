@@ -603,6 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 200271761}
   - component: {fileID: 200271760}
+  - component: {fileID: 200271762}
   - component: {fileID: 200271759}
   m_Layer: 0
   m_Name: KeyboardPointer
@@ -620,9 +621,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 200271758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05c623c3913e384fa37c6f454731fce, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current: 0
+  dash: 0
 --- !u!212 &200271760
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -686,6 +689,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &200271762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200271758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  move: {x: 0, y: 0, z: 0}
 --- !u!1001 &225929383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,7 +1894,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 500
-  field of view: 40
+  field of view: 50.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1902,9 +1919,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538265088}
-  m_LocalRotation: {x: -0.000035040277, y: -5.291378e-14, z: -0.0000000015100845,
+  m_LocalRotation: {x: -0.00003504001, y: -5.2913105e-14, z: -0.0000000015100766,
     w: 1}
-  m_LocalPosition: {x: 3.225091, y: -0.15646765, z: -12.090088}
+  m_LocalPosition: {x: 3.225091, y: -0.15618742, z: -8.091447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1917,7 +1934,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538265088}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -3060,12 +3077,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790313601}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1fc925f2c65bd4baa90de4a04c0731, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bRight: 0
+  current: 1
+  dash: 0
 --- !u!114 &790313603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,9 +3093,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 790313601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029509fd59f167b42a0287c80eba9ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  move: {x: 0, y: 0, z: 0}
 --- !u!212 &790313604
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3466,6 +3486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879921532}
   - component: {fileID: 879921531}
+  - component: {fileID: 879921533}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -3517,7 +3538,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879921530}
-  m_LocalRotation: {x: -0.000035040277, y: -5.291378e-14, z: -0.0000000015100845,
+  m_LocalRotation: {x: -0.00003504001, y: -5.2913105e-14, z: -0.0000000015100766,
     w: 1}
   m_LocalPosition: {x: 3.225091, y: -0.15632117, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -3526,6 +3547,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879921533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879921530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4700f9f03ad19f94baf0367cb7a9c988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Width: 10
+  m_Damping: 5
+  m_MinFOV: 30
+  m_MaxFOV: 50
 --- !u!1001 &880941494
 PrefabInstance:
   m_ObjectHideFlags: 0

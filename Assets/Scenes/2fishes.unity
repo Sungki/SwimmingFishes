@@ -1084,6 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185554588}
   - component: {fileID: 1185554587}
+  - component: {fileID: 1185554590}
   - component: {fileID: 1185554589}
   m_Layer: 0
   m_Name: KeyboardPointer
@@ -1164,15 +1165,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1185554586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05c623c3913e384fa37c6f454731fce, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish:
-  - {fileID: 1817850617}
-  - {fileID: 1804443852}
-  - {fileID: 77312690}
-  - {fileID: 93650694}
-  - {fileID: 1594661019}
+  current: 0
+  dash: 0
+--- !u!114 &1185554590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185554586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  move: {x: 0, y: 0, z: 0}
 --- !u!1 &1288316211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,8 +2484,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1931216704}
   - component: {fileID: 1931216703}
-  - component: {fileID: 1931216702}
   - component: {fileID: 1931216705}
+  - component: {fileID: 1931216702}
   m_Layer: 0
   m_Name: MousePointer
   m_TagString: Untagged
@@ -2491,9 +2502,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1931216701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029509fd59f167b42a0287c80eba9ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current: 1
+  dash: 0
 --- !u!212 &1931216703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2564,12 +2577,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931216701}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1fc925f2c65bd4baa90de4a04c0731, type: 3}
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bRight: 0
+  speed: 8
+  move: {x: 0, y: 0, z: 0}
 --- !u!1 &1973981088
 GameObject:
   m_ObjectHideFlags: 0

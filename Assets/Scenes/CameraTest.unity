@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 87071605}
   - component: {fileID: 87071604}
+  - component: {fileID: 87071606}
   - component: {fileID: 87071603}
   m_Layer: 0
   m_Name: KeyboardPointer
@@ -147,15 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 87071602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05c623c3913e384fa37c6f454731fce, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish:
-  - {fileID: 1985658349}
-  - {fileID: 1233508951}
-  - {fileID: 546987985}
-  - {fileID: 1983601574}
-  - {fileID: 1616659244}
+  current: 0
 --- !u!212 &87071604
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -219,6 +215,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87071606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87071602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  move: {x: 0, y: 0, z: 0}
 --- !u!1 &240933355
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,12 +888,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659720746}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1fc925f2c65bd4baa90de4a04c0731, type: 3}
+  m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bRight: 0
+  current: 1
 --- !u!114 &659720748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,9 +903,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 659720746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029509fd59f167b42a0287c80eba9ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: aa3b16bd8b3623541b29b9c77258fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  move: {x: 0, y: 0, z: 0}
 --- !u!212 &659720749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1935,6 +1947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374018612}
   - component: {fileID: 1374018611}
+  - component: {fileID: 1374018613}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1994,6 +2007,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 10.647, z: 0}
+--- !u!114 &1374018613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374018610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4700f9f03ad19f94baf0367cb7a9c988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Width: 5
+  m_Damping: 5
+  m_MinFOV: 30
+  m_MaxFOV: 50
 --- !u!1 &1517003293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,9 +2608,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 40
+  field of view: 30.000002
   orthographic: 1
-  orthographic size: 8.303127
+  orthographic size: 6.6814227
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
