@@ -17,7 +17,7 @@ public class SelectControl : MonoBehaviour
         LogitechController_Right
     }
 
-    [SerializeField] Control current;
+    [SerializeField] Control current = 0;
     [HideInInspector] public float dash = 0;
     MovePointer mv;
 

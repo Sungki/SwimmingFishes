@@ -6,7 +6,7 @@ public class FollowTarget : MonoBehaviour
 {
     public GameObject target;
     public float speed = 5f;
-    Vector3 velocity;
+    [HideInInspector] public Vector3 velocity;
 
     void Update()
     {
