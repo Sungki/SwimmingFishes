@@ -14,12 +14,15 @@ public class SelectControl : MonoBehaviour
         XboxController_2_Left,
         XboxController_2_Right,
         LogitechController_Left,
-        LogitechController_Right
+        LogitechController_Right,
+        AI
     }
 
     [SerializeField] Control current = 0;
     [HideInInspector] public float dash = 0;
     MovePointer mv;
+    private float TimeLeft = 1.0f;
+    private float nextTime = 0.0f;
 
     void Start()
     {
@@ -54,7 +57,23 @@ public class SelectControl : MonoBehaviour
             case Control.LogitechController_Right:
                 LogitechController(1, true);
                 break;
+            case Control.AI:
+                AI();
+                break;
+        }
+    }
 
+    void AI()
+    {
+        if (Time.time > nextTime)
+        {
+            nextTime = Time.time + TimeLeft;
+            int random = Random.Range(1, 5);
+
+            if (random == 1) mv.move = Vector3.left;
+            else if (random == 2) mv.move = Vector3.right;
+            else if (random == 3) mv.move = Vector3.up;
+            else if (random == 4) mv.move = Vector3.down;
         }
     }
 
