@@ -23,6 +23,7 @@ public class SelectControl : MonoBehaviour
     MovePointer mv;
     private float TimeLeft = 1.0f;
     private float nextTime = 0.0f;
+    private float movementAI = 0;
 
     void Start()
     {
@@ -31,7 +32,9 @@ public class SelectControl : MonoBehaviour
 
     void Update()
     {
-        switch(current)
+        mv.move = Vector3.zero;
+
+        switch (current)
         {
             case Control.Keyboard_WASD:
                 Keyboard();
@@ -61,34 +64,35 @@ public class SelectControl : MonoBehaviour
                 AI();
                 break;
         }
-    }
 
-    void AI()
-    {
-        if (Time.time > nextTime)
-        {
-            nextTime = Time.time + TimeLeft;
-            int random = Random.Range(1, 5);
-
-            if (random == 1) mv.move = Vector3.left;
-            else if (random == 2) mv.move = Vector3.right;
-            else if (random == 3) mv.move = Vector3.up;
-            else if (random == 4) mv.move = Vector3.down;
-        }
-    }
-
-    void Keyboard()
-    {
-        mv.move = Vector3.zero;
-        if (Input.GetKey(KeyCode.A)) mv.move += Vector3.left;
-        if (Input.GetKey(KeyCode.D)) mv.move += Vector3.right;
-        if (Input.GetKey(KeyCode.W)) mv.move += Vector3.up;
-        if (Input.GetKey(KeyCode.S)) mv.move += Vector3.down;
         if (dash != 0)
         {
             mv.move += mv.move * dash;
             dash = 0;
         }
+    }
+
+    void AI()
+    {
+
+        if (Time.time > nextTime)
+        {
+            nextTime = Time.time + TimeLeft;
+            movementAI = Random.Range(1, 5);
+        }
+
+        if (movementAI == 1) mv.move += Vector3.left;
+        else if (movementAI == 2) mv.move += Vector3.right;
+        else if (movementAI == 3) mv.move += Vector3.up;
+        else if (movementAI == 4) mv.move += Vector3.down;
+    }
+
+    void Keyboard()
+    {
+        if (Input.GetKey(KeyCode.A)) mv.move += Vector3.left;
+        if (Input.GetKey(KeyCode.D)) mv.move += Vector3.right;
+        if (Input.GetKey(KeyCode.W)) mv.move += Vector3.up;
+        if (Input.GetKey(KeyCode.S)) mv.move += Vector3.down;
     }
 
     void Mouse()
@@ -110,16 +114,16 @@ public class SelectControl : MonoBehaviour
     void XboxController(int num, bool bRight)
     {
         if (!bRight)
-            mv.move = new Vector3(Input.GetAxis("Xbox" + num + "LeftHorizontal"), Input.GetAxis("Xbox" + num + "LeftVertical"), 0);
+            mv.move += new Vector3(Input.GetAxis("Xbox" + num + "LeftHorizontal"), Input.GetAxis("Xbox" + num + "LeftVertical"), 0);
         else
-            mv.move = new Vector3(Input.GetAxis("Xbox" + num + "RightHorizontal"), Input.GetAxis("Xbox" + num + "RightVertical"), 0);
+            mv.move += new Vector3(Input.GetAxis("Xbox" + num + "RightHorizontal"), Input.GetAxis("Xbox" + num + "RightVertical"), 0);
     }
 
     void LogitechController(int num, bool bRight)
     {
         if (!bRight)
-            mv.move = new Vector3(Input.GetAxis("Xbox" + num + "LeftHorizontal"), Input.GetAxis("Xbox" + num + "LeftVertical"), 0);
+            mv.move += new Vector3(Input.GetAxis("Xbox" + num + "LeftHorizontal"), Input.GetAxis("Xbox" + num + "LeftVertical"), 0);
         else
-            mv.move = new Vector3(Input.GetAxis("LogitechRightHorizontal"), Input.GetAxis("LogitechRightVertical"), 0);
+            mv.move += new Vector3(Input.GetAxis("LogitechRightHorizontal"), Input.GetAxis("LogitechRightVertical"), 0);
     }
 }

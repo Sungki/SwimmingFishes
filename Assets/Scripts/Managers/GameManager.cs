@@ -8,9 +8,4 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = false;
     }
-
-    private void Update()
-    {
-        if (Camera.main.transform.position.z < -10f) Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -10f);
-    }
 }

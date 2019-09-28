@@ -13,8 +13,8 @@ public class MovePointer : MonoBehaviour
         transform.position += move * speed * Time.deltaTime;
 
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -15, 15);
-        pos.y = Mathf.Clamp(pos.y, -7, 7);
+        pos.x = Mathf.Clamp(pos.x, -12, 12);
+        pos.y = Mathf.Clamp(pos.y, -6, 6);
 
 
         transform.position = pos;

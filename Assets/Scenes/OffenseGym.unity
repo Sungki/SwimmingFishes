@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 200271759}
   - component: {fileID: 200271763}
   m_Layer: 0
-  m_Name: KeyboardPointer
+  m_Name: LeftPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36922d783fd8e5f459af8d47f5624ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 0
+  current: 6
   dash: 0
 --- !u!212 &200271760
 SpriteRenderer:
@@ -900,7 +900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280629860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20018205, y: -0.20232116, z: -2.7324219}
+  m_LocalPosition: {x: -2.72, y: -0.31, z: -2.7324219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287979614}
@@ -1780,14 +1780,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538265088}
-  m_LocalRotation: {x: -0.00003504001, y: -5.2913105e-14, z: -0.0000000015100766,
-    w: 1}
-  m_LocalPosition: {x: 3.225091, y: -0.15618742, z: -8.091447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.0660001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &539739625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3090,7 +3089,7 @@ GameObject:
   - component: {fileID: 790313603}
   - component: {fileID: 790313602}
   m_Layer: 0
-  m_Name: MousePointer
+  m_Name: RightPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7106,7 +7105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867570275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20018205, y: -0.20232116, z: -2.7324219}
+  m_LocalPosition: {x: -3.14, y: -0.05, z: -2.7324219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1152681561}

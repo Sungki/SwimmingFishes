@@ -29,7 +29,7 @@ public class DashAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("LeftTrigger"))
         {
             sc.dash = 20f;
             /*            for (int i = 0; i < 5; i++)
