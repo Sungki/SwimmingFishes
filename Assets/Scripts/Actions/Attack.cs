@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public enum FishSide
+    {
+        LeftFish,
+        RightFish
+    }
+
+    [SerializeField] FishSide current = 0;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GetComponent<FishState>().curr == FishObject.State.Attack)
         {
-            if (collision.transform.tag != "LeftFish")
+            if (collision.transform.tag != current.ToString())
             {
                 FollowTarget ft = collision.gameObject.GetComponent<FollowTarget>();
                 ft.enabled = false;
