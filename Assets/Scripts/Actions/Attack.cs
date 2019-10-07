@@ -26,6 +26,8 @@ public class Attack : MonoBehaviour
                 AddExplosionForce1(rb, 10f, GetComponent<FollowTarget>().velocity * 2f, 10f);
 
                 GetComponent<FishState>().StartIdle();
+
+                Toolbox.GetInstance().GetManager<GameManager>().AddScore();
             }
         }
     }

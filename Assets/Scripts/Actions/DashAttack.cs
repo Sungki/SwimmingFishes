@@ -33,10 +33,10 @@ public class DashAttack : MonoBehaviour
 //        mv = GetComponent<MovePointer>();
         sc = GetComponent<SelectControl>();
 
-        ft = new FollowTarget[5];
-        fs = new FishState[5];
+        ft = new FollowTarget[fish.Length];
+        fs = new FishState[fish.Length];
         //        rb = new Rigidbody2D[5];
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < fish.Length; i++)
         {
 //            rb[i] = fish[i].GetComponent<Rigidbody2D>();
             ft[i] = fish[i].GetComponent<FollowTarget>();
@@ -76,7 +76,7 @@ public class DashAttack : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < fish.Length; i++)
         {
             if (Vector2.Distance(this.transform.position, fish[i].transform.position) < 0.3f)
             {
