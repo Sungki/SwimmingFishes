@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private SceneState currentState = 0;
-    private int score = 0;
+    private int scoreLeft = 0;
+    private int scoreRight = 0;
 
     private void Start()
     {
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     public void Init()
     {
-        score = 0;
+        scoreLeft = 0;
+        scoreRight = 0;
         currentState = SceneState.StartScreen;
     }
 
@@ -30,11 +32,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentState.ToString());
     }
 
-    public string GetScore() { return "Score: " + score.ToString(); }
-
-    public void AddScore()
+    public void AddScoreLeft()
     {
-        score++;
+        scoreLeft++;
+        DisplayManager.ShowHUDLeft(scoreLeft.ToString());
+    }
+
+    public void AddScoreRight()
+    {
+        scoreRight++;
+        DisplayManager.ShowHUDRight(scoreRight.ToString());
     }
 
     void Update()

@@ -27,7 +27,10 @@ public class Attack : MonoBehaviour
 
                 GetComponent<FishState>().StartIdle();
 
-                Toolbox.GetInstance().GetManager<GameManager>().AddScore();
+                if(this.tag == "LeftFish")
+                    Toolbox.GetInstance().GetManager<GameManager>().AddScoreLeft();
+                else
+                    Toolbox.GetInstance().GetManager<GameManager>().AddScoreRight();
             }
         }
     }

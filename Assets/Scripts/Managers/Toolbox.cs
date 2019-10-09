@@ -27,8 +27,8 @@ public class Toolbox : MonoBehaviour
             Destroy(this);
         }
 
+//        CreateManager<DisplayManager>();
         CreateManager<GameManager>();
-        CreateManager<DisplayManager>();
     }
 
     private void CreateManager<T>() where T : MonoBehaviour
