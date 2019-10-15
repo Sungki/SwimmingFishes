@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dash: 0
-  current: 0
+  current: 8
   prefab: {fileID: 1442488952756722506, guid: 77ce0b1659b44414ba6e6d59dfe16e9e, type: 3}
   countFish: 1
   fishScale: 1
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dash: 0
-  current: 8
+  current: 0
   prefab: {fileID: 1442488952756722506, guid: 77ce0b1659b44414ba6e6d59dfe16e9e, type: 3}
   countFish: 5
   fishScale: 0.5
