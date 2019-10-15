@@ -13,19 +13,24 @@ public class DashAttack : MonoBehaviour
 
         sc = GetComponent<SelectControl>();
 
-        fish = Instantiate(sc.prefab, transform.position, Quaternion.identity);
-        fish.GetComponent<FollowTarget>().target = this.gameObject;
-        fish.transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
+        for(int i=0; i<sc.countFish; i++)
+        {
+            fish = Instantiate(sc.prefab, transform.position+Vector3.left*i, Quaternion.identity);
+            fish.GetComponent<FollowTarget>().target = this.gameObject;
+            fish.transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
 
-        if (tag == "LeftFish")
-        {
-            fish.GetComponent<Attack>().current = Attack.FishSide.LeftFish;
-            fish.gameObject.tag = "LeftFish";
-        }
-        else
-        {
-            fish.GetComponent<Attack>().current = Attack.FishSide.RightFish;
-            fish.gameObject.tag = "RightFish";
+            if (tag == "LeftFish")
+            {
+                fish.GetComponent<Attack>().current = Attack.FishSide.LeftFish;
+                fish.gameObject.tag = "LeftFish";
+                fish.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+            }
+            else
+            {
+                fish.GetComponent<Attack>().current = Attack.FishSide.RightFish;
+                fish.gameObject.tag = "RightFish";
+                fish.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            }
         }
     }
 
