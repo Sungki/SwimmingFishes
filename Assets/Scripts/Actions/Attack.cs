@@ -10,13 +10,13 @@ public class Attack : MonoBehaviour
         RightFish
     }
 
-    [SerializeField] FishSide current = 0;
+    public FishSide current = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GetComponent<FishState>().curr == FishObject.State.Attack)
         {
-            if (collision.transform.tag != current.ToString())
+            if (collision.transform.tag != "Block" && collision.transform.tag != current.ToString())
             {
                 FollowTarget ft = collision.gameObject.GetComponent<FollowTarget>();
                 ft.enabled = false;

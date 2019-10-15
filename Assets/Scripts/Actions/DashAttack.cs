@@ -4,85 +4,66 @@ using UnityEngine;
 
 public class DashAttack : MonoBehaviour
 {
-    public enum Control
-    {
-        Keyboard_WASD,
-        Mouse,
-        XboxController_1_Left,
-        XboxController_1_Right,
-        XboxController_2_Left,
-        XboxController_2_Right,
-        LogitechController_Left,
-        LogitechController_Right,
-        AI
-    }
-
-    [SerializeField] Control current = 0;
-
-    public GameObject[] fish;
-    FollowTarget[] ft;
-//    MovePointer mv;
     SelectControl sc;
-    FishState[] fs;
-    //    Rigidbody2D[] rb;
-
+    GameObject fish;
     private bool m_isAxisInUse = false;
 
     void Start()
     {
-//        mv = GetComponent<MovePointer>();
+
         sc = GetComponent<SelectControl>();
 
-        ft = new FollowTarget[fish.Length];
-        fs = new FishState[fish.Length];
-        //        rb = new Rigidbody2D[5];
-        for (int i = 0; i < fish.Length; i++)
+        fish = Instantiate(sc.prefab, transform.position, Quaternion.identity);
+        fish.GetComponent<FollowTarget>().target = this.gameObject;
+        fish.transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
+
+        if (tag == "LeftFish")
         {
-//            rb[i] = fish[i].GetComponent<Rigidbody2D>();
-            ft[i] = fish[i].GetComponent<FollowTarget>();
-            fs[i] = fish[i].GetComponent<FishState>();
+            fish.GetComponent<Attack>().current = Attack.FishSide.LeftFish;
+            fish.gameObject.tag = "LeftFish";
+        }
+        else
+        {
+            fish.GetComponent<Attack>().current = Attack.FishSide.RightFish;
+            fish.gameObject.tag = "RightFish";
         }
     }
 
     void Update()
     {
-        switch (current)
+        switch (sc.current)
         {
-            case Control.Keyboard_WASD:
+            case SelectControl.Control.Keyboard_WASD:
                 Keyboard();
                 break;
-            case Control.Mouse:
+            case SelectControl.Control.Mouse:
                 Mouse();
                 break;
-            case Control.XboxController_1_Left:
+            case SelectControl.Control.XboxController_1_Left:
                 XboxController(1, false);
                 break;
-            case Control.XboxController_1_Right:
+            case SelectControl.Control.XboxController_1_Right:
                 XboxController(1, true);
                 break;
-            case Control.XboxController_2_Left:
+            case SelectControl.Control.XboxController_2_Left:
                 XboxController(2, false);
                 break;
-            case Control.XboxController_2_Right:
+            case SelectControl.Control.XboxController_2_Right:
                 XboxController(2, true);
                 break;
-            case Control.LogitechController_Left:
+            case SelectControl.Control.LogitechController_Left:
                 LogitechController(false);
                 break;
-            case Control.LogitechController_Right:
+            case SelectControl.Control.LogitechController_Right:
                 LogitechController(true);
                 break;
-            case Control.AI:
+            case SelectControl.Control.AI:
                 break;
         }
 
-        for (int i = 0; i < fish.Length; i++)
+        if (Vector2.Distance(this.transform.position, fish.transform.position) < 0.3f)
         {
-            if (Vector2.Distance(this.transform.position, fish[i].transform.position) < 0.3f)
-            {
-                  ft[i].speed = 5f;
-//                rb[i].AddForce(Vector2.zero);
-            }
+            fish.GetComponent<FollowTarget>().speed = 5f;
         }
     }
 
@@ -158,20 +139,7 @@ public class DashAttack : MonoBehaviour
     void PressAttack()
     {
         sc.dash = 20f;
-        /*            for (int i = 0; i < 5; i++)
-                    {
-                        rb[i].AddForce(ft[i].velocity*500f);
-                    }*/
-
-        foreach (FollowTarget f in ft)
-        {
-            f.speed = 10f;
-        }
-
-        foreach (FishState f in fs)
-        {
-            f.curr = FishObject.State.Attack;
-        }
-
+        fish.GetComponent<FollowTarget>().speed = 10f;
+        fish.GetComponent<FishState>().curr = FishObject.State.Attack;
     }
 }

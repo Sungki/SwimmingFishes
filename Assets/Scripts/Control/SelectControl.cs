@@ -18,12 +18,17 @@ public class SelectControl : MonoBehaviour
         AI
     }
 
-    [SerializeField] Control current = 0;
     [HideInInspector] public float dash = 0;
+    public Control current = 0;
+
     MovePointer mv;
     private float TimeLeft = 1.0f;
     private float nextTime = 0.0f;
     private float movementAI = 0;
+
+    public GameObject prefab;
+    public int countFish = 1;
+    public float fishScale = 1f;
 
     void Start()
     {

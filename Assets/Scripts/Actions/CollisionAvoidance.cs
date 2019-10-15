@@ -22,7 +22,7 @@ public class CollisionAvoidance : MonoBehaviour
         Vector3 ahead = transform.position + ft.velocity.normalized * MAX_SEE_AHEAD;
         if (Vector2.Distance(ahead, obstacle.transform.position) < obstacle.GetComponent<CircleCollider2D>().radius)
         {
-            ft.isCollision = true;
+//            ft.isCollision = true;
             avoidance_force = ahead - obstacle.transform.position;
             avoidance_force = avoidance_force.normalized;
 
@@ -51,6 +51,6 @@ public class CollisionAvoidance : MonoBehaviour
     */
     void ReStart()
     {
-        ft.isCollision = false;
+//        ft.isCollision = false;
     }
 }

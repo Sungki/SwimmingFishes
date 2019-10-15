@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftFish
   - RightFish
+  - Block
   layers:
   - Default
   - TransparentFX

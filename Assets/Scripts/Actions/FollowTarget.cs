@@ -8,18 +8,19 @@ public class FollowTarget : MonoBehaviour
     public float speed = 5f;
     [HideInInspector] public Vector3 velocity;
 
-    public bool isCollision = false;
+//    public bool isCollision = false;
 
-/*    Rigidbody2D rb;
+    /*    Rigidbody2D rb;
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }*/
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }*/
+    Vector3 targetPos;
 
     void Update()
     {
-        Vector3 targetPos = target.transform.position;
+        targetPos = target.transform.position;
         float angleRad = Mathf.Atan2(targetPos.y - this.transform.position.y, targetPos.x - this.transform.position.x);
         float angleDeg = (180 / Mathf.PI) * angleRad;
 
@@ -28,14 +29,13 @@ public class FollowTarget : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 targetPos = target.transform.position;
+//        targetPos = target.transform.position;
         velocity = targetPos - transform.position;
-        //        }
 
         //        velocity = velocity + GetComponent<CollisionAvoidance>().Avoidance();
 
-        velocity.x = Mathf.Clamp(velocity.x, -0.7f, 0.7f);
-        velocity.y = Mathf.Clamp(velocity.y, -0.7f, 0.7f);
+        velocity.x = Mathf.Clamp(velocity.x, -0.9f, 0.9f);
+        velocity.y = Mathf.Clamp(velocity.y, -0.9f, 0.9f);
 
         velocity.z = transform.position.z;
         transform.position = transform.position + velocity * Time.deltaTime * speed;
