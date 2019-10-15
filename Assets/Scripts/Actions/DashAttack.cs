@@ -5,31 +5,32 @@ using UnityEngine;
 public class DashAttack : MonoBehaviour
 {
     SelectControl sc;
-    GameObject fish;
+    GameObject[] fish;
     private bool m_isAxisInUse = false;
 
     void Start()
     {
-
         sc = GetComponent<SelectControl>();
 
-        for(int i=0; i<sc.countFish; i++)
+        fish = new GameObject[sc.countFish];
+
+        for (int i=0; i<sc.countFish; i++)
         {
-            fish = Instantiate(sc.prefab, transform.position+Vector3.left*i, Quaternion.identity);
-            fish.GetComponent<FollowTarget>().target = this.gameObject;
-            fish.transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
+            fish[i] = Instantiate(sc.prefab, transform.position+Vector3.left*i, Quaternion.identity);
+            fish[i].GetComponent<FollowTarget>().target = this.gameObject;
+            fish[i].transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
 
             if (tag == "LeftFish")
             {
-                fish.GetComponent<Attack>().current = Attack.FishSide.LeftFish;
-                fish.gameObject.tag = "LeftFish";
-                fish.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                fish[i].GetComponent<Attack>().current = Attack.FishSide.LeftFish;
+                fish[i].gameObject.tag = "LeftFish";
+                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
             else
             {
-                fish.GetComponent<Attack>().current = Attack.FishSide.RightFish;
-                fish.gameObject.tag = "RightFish";
-                fish.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                fish[i].GetComponent<Attack>().current = Attack.FishSide.RightFish;
+                fish[i].gameObject.tag = "RightFish";
+                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
         }
     }
@@ -66,9 +67,12 @@ public class DashAttack : MonoBehaviour
                 break;
         }
 
-        if (Vector2.Distance(this.transform.position, fish.transform.position) < 0.3f)
+        for (int i = 0; i < sc.countFish; i++)
         {
-            fish.GetComponent<FollowTarget>().speed = 5f;
+            if (Vector2.Distance(this.transform.position, fish[i].transform.position) < 0.3f)
+            {
+                fish[i].GetComponent<FollowTarget>().speed = 5f;
+            }
         }
     }
 
@@ -144,7 +148,10 @@ public class DashAttack : MonoBehaviour
     void PressAttack()
     {
         sc.dash = 20f;
-        fish.GetComponent<FollowTarget>().speed = 10f;
-        fish.GetComponent<FishState>().curr = FishObject.State.Attack;
+        for (int i = 0; i < sc.countFish; i++)
+        {
+            fish[i].GetComponent<FollowTarget>().speed = 10f;
+            fish[i].GetComponent<FishState>().curr = FishObject.State.Attack;
+        }
     }
 }
