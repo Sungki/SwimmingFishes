@@ -23,19 +23,22 @@ public class FollowTarget : MonoBehaviour
         float angleRad = Mathf.Atan2(targetPos.y - this.transform.position.y, targetPos.x - this.transform.position.x);
         float angleDeg = (180 / Mathf.PI) * angleRad;
 
-        if(!isCollision)
-        {
-            this.transform.rotation = Quaternion.Euler(0, 0, angleDeg);
-            velocity = targetPos - transform.position;
-        }
+        this.transform.rotation = Quaternion.Euler(0, 0, angleDeg);
+    }
 
-        velocity = velocity + GetComponent<CollisionAvoidance>().Avoidance();
+    private void FixedUpdate()
+    {
+        Vector3 targetPos = target.transform.position;
+        velocity = targetPos - transform.position;
+        //        }
 
-//        velocity.x = Mathf.Clamp(velocity.x, -0.5f, 0.5f);
-//        velocity.y = Mathf.Clamp(velocity.y, -0.5f, 0.5f);
+        //        velocity = velocity + GetComponent<CollisionAvoidance>().Avoidance();
+
+        velocity.x = Mathf.Clamp(velocity.x, -0.7f, 0.7f);
+        velocity.y = Mathf.Clamp(velocity.y, -0.7f, 0.7f);
 
         velocity.z = transform.position.z;
         transform.position = transform.position + velocity * Time.deltaTime * speed;
-//        rb.MovePosition(transform.position + velocity * Time.deltaTime * speed);
+        //        rb.MovePosition(transform.position + velocity * Time.deltaTime * speed);        
     }
 }

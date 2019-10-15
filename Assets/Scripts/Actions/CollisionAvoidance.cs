@@ -16,6 +16,8 @@ public class CollisionAvoidance : MonoBehaviour
 
     public Vector3 Avoidance()
     {
+        if (!obstacle) return Vector3.zero;
+
         Vector3 avoidance_force = Vector3.zero;
         Vector3 ahead = transform.position + ft.velocity.normalized * MAX_SEE_AHEAD;
         if (Vector2.Distance(ahead, obstacle.transform.position) < obstacle.GetComponent<CircleCollider2D>().radius)
