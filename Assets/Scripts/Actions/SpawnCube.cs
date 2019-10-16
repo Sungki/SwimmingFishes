@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashAttack : MonoBehaviour
+public class SpawnCube : MonoBehaviour
 {
     SelectControl sc;
     ParticleSystem ps;
     GameObject[] fish;
     private bool m_isAxisInUse = false;
 
-    public float waitingTime = 3.0f;
+    public float waitingTime = 15.0f;
     bool canAttack = true;
 
     void Start()
@@ -19,9 +19,9 @@ public class DashAttack : MonoBehaviour
 
         fish = new GameObject[sc.countFish];
 
-        for (int i=0; i<sc.countFish; i++)
+        for (int i = 0; i < sc.countFish; i++)
         {
-            fish[i] = Instantiate(sc.prefab, transform.position+Vector3.left*i, Quaternion.identity);
+            fish[i] = Instantiate(sc.prefab, transform.position + Vector3.left * i, Quaternion.identity);
             fish[i].GetComponent<FollowTarget>().target = this.gameObject;
             fish[i].transform.localScale = new Vector3(sc.fishScale, sc.fishScale, sc.fishScale);
 
@@ -71,25 +71,13 @@ public class DashAttack : MonoBehaviour
             case SelectControl.Control.AI:
                 break;
         }
-
-        for (int i = 0; i < sc.countFish; i++)
-        {
-            if (fish[i])
-            {
-                if (Vector2.Distance(this.transform.position, fish[i].transform.position) < 0.3f)
-                {
-                    fish[i].GetComponent<FollowTarget>().speed = 5f;
-                    fish[i].GetComponent<FishState>().curr = FishObject.State.Idle;
-                }
-            }
-        }
     }
 
     void Keyboard()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PressAttack();
+            CreateCube();
         }
     }
 
@@ -97,7 +85,7 @@ public class DashAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PressAttack();
+            CreateCube();
         }
     }
 
@@ -105,11 +93,11 @@ public class DashAttack : MonoBehaviour
     {
         if (!bRight)
         {
-            if (Input.GetAxisRaw("Xbox" + num + "LeftTrigger")!=0)
+            if (Input.GetAxisRaw("Xbox" + num + "LeftTrigger") != 0)
             {
                 if (m_isAxisInUse == false)
                 {
-                    PressAttack();
+                    CreateCube();
                     m_isAxisInUse = true;
                 }
             }
@@ -121,11 +109,11 @@ public class DashAttack : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxisRaw("Xbox" + num + "RightTrigger")!=0)
+            if (Input.GetAxisRaw("Xbox" + num + "RightTrigger") != 0)
             {
                 if (m_isAxisInUse == false)
                 {
-                    PressAttack();
+                    CreateCube();
                     m_isAxisInUse = true;
                 }
             }
@@ -142,31 +130,26 @@ public class DashAttack : MonoBehaviour
         {
             if (Input.GetButtonDown("LogitechLeftTrigger"))
             {
-                PressAttack();
+                CreateCube();
             }
         }
         else
         {
             if (Input.GetButtonDown("LogitechRightTrigger"))
             {
-                PressAttack();
+                CreateCube();
             }
         }
     }
 
-    void PressAttack()
+    void CreateCube()
     {
-        if (canAttack)
+        if(canAttack)
         {
             canAttack = false;
             ps.Stop();
             Invoke("CanAttack", waitingTime);
-            sc.dash = 20f;
-            for (int i = 0; i < sc.countFish; i++)
-            {
-                fish[i].GetComponent<FollowTarget>().speed = 10f;
-                fish[i].GetComponent<FishState>().curr = FishObject.State.Attack;
-            }
+            Instantiate(sc.cube, transform.position, Quaternion.identity);
         }
     }
 

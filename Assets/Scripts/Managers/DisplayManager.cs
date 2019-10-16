@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DisplayManager : MonoBehaviour
 {
     private GameObject myCanvas;
-    private static Text[] textArray;
+    public Text[] textArray;
 
     private void Awake()
     {
@@ -14,15 +14,15 @@ public class DisplayManager : MonoBehaviour
         textArray = myCanvas.GetComponentsInChildren<Text>();
     }
 
-    public static void ShowHUDLeft(string _str)
-    {
-        textArray[0].text = _str;
-    }
+//    public static void ShowHUDLeft(string _str)
+//    {
+//        textArray[0].text = _str;
+//    }
 
-    public static void ShowHUDRight(string _str)
-    {
-        textArray[2].text = _str;
-    }
+//    public static void ShowHUDRight(string _str)
+//    {
+//        textArray[2].text = _str;
+//    }
 
     public void ShowSummary()
     {

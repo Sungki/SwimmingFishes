@@ -19,18 +19,20 @@ public class Attack : MonoBehaviour
             if (collision.transform.tag != "Block" && collision.transform.tag != current.ToString())
             {
                 FollowTarget ft = collision.gameObject.GetComponent<FollowTarget>();
-                ft.enabled = false;
-                collision.gameObject.GetComponent<FishState>().StartStun();
+                if (ft)
+                {
+                    ft.enabled = false;
+                    collision.gameObject.GetComponent<FishState>().StartStun();
+                    Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                    AddExplosionForce1(rb, 10f, GetComponent<FollowTarget>().velocity * 2f, 10f);
+                    GetComponent<FishState>().StartIdle();
+                }
 
-                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-                AddExplosionForce1(rb, 10f, GetComponent<FollowTarget>().velocity * 2f, 10f);
-
-                GetComponent<FishState>().StartIdle();
-
-                if(this.tag == "LeftFish")
-                    Toolbox.GetInstance().GetManager<GameManager>().AddScoreLeft();
-                else
+                if (this.tag == "RightFish")
+                {
                     Toolbox.GetInstance().GetManager<GameManager>().AddScoreRight();
+                    collision.gameObject.GetComponent<ReduceHP>().Hit();
+                }
             }
         }
     }

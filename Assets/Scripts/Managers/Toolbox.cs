@@ -27,7 +27,7 @@ public class Toolbox : MonoBehaviour
             Destroy(this);
         }
 
-//        CreateManager<DisplayManager>();
+        CreateManager<DisplayManager>();
         CreateManager<GameManager>();
     }
 

@@ -27,6 +27,8 @@ public class SelectControl : MonoBehaviour
     private float movementAI = 0;
 
     public GameObject prefab;
+    public GameObject cube;
+
     public int countFish = 1;
     public float fishScale = 1f;
 

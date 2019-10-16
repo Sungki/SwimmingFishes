@@ -9,17 +9,27 @@ public class GameManager : MonoBehaviour
     private int scoreLeft = 0;
     private int scoreRight = 0;
 
-    private void Start()
+    int totalTime = 60;
+
+    void ReduceTime()
     {
-        Cursor.visible = false;
-        Init();
+        totalTime--;
+        Toolbox.GetInstance().GetManager<DisplayManager>().textArray[1].text = totalTime.ToString();
+        if (totalTime<=0)
+        {
+            SceneManager.LoadScene("EndScreen");
+//            if (scoreLeft > scoreRight) Toolbox.GetInstance().GetManager<DisplayManager>().textArray[2].enabled = false;
+//            else Toolbox.GetInstance().GetManager<DisplayManager>().textArray[1].enabled = false;
+        }
     }
 
     public void Init()
     {
+        Cursor.visible = false;
         scoreLeft = 0;
         scoreRight = 0;
         currentState = SceneState.StartScreen;
+        InvokeRepeating("ReduceTime", 1f, 1f);
     }
 
     public void NextScene()
@@ -35,13 +45,18 @@ public class GameManager : MonoBehaviour
     public void AddScoreLeft()
     {
         scoreLeft++;
-        DisplayManager.ShowHUDLeft(scoreLeft.ToString());
+
+        Toolbox.GetInstance().GetManager<DisplayManager>().textArray[0].text = scoreLeft.ToString();
+
+        //        DisplayManager.textArray[0].text = scoreLeft.ToString();
+        //        DisplayManager.ShowHUDLeft(scoreLeft.ToString());
     }
 
     public void AddScoreRight()
     {
         scoreRight++;
-        DisplayManager.ShowHUDRight(scoreRight.ToString());
+        Toolbox.GetInstance().GetManager<DisplayManager>().textArray[2].text = scoreRight.ToString();
+        //      DisplayManager.ShowHUDRight(scoreRight.ToString());
     }
 
     void Update()
