@@ -8,6 +8,7 @@ public class SpawnCube : MonoBehaviour
     ParticleSystem ps;
     GameObject[] fish;
     private bool m_isAxisInUse = false;
+    private AudioSource audioSource;
 
     public float waitingTime = 15.0f;
     bool canAttack = true;
@@ -16,6 +17,7 @@ public class SpawnCube : MonoBehaviour
     {
         ps = GetComponent<ParticleSystem>();
         sc = GetComponent<SelectControl>();
+        audioSource = GetComponent<AudioSource>();
 
         fish = new GameObject[sc.countFish];
 
@@ -148,6 +150,7 @@ public class SpawnCube : MonoBehaviour
         {
             canAttack = false;
             ps.Stop();
+            audioSource.Play();
             Invoke("CanAttack", waitingTime);
             Instantiate(sc.cube, transform.position, Quaternion.identity);
         }

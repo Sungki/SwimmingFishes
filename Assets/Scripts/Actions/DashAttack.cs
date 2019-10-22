@@ -9,6 +9,8 @@ public class DashAttack : MonoBehaviour
     GameObject[] fish;
     private bool m_isAxisInUse = false;
 
+    private AudioSource audioSource;
+
     public float waitingTime = 3.0f;
     bool canAttack = true;
 
@@ -16,6 +18,7 @@ public class DashAttack : MonoBehaviour
     {
         ps = GetComponent<ParticleSystem>();
         sc = GetComponent<SelectControl>();
+        audioSource = GetComponent<AudioSource>();
 
         fish = new GameObject[sc.countFish];
 
@@ -160,6 +163,7 @@ public class DashAttack : MonoBehaviour
         {
             canAttack = false;
             ps.Stop();
+            audioSource.Play();
             Invoke("CanAttack", waitingTime);
             sc.dash = 20f;
             for (int i = 0; i < sc.countFish; i++)

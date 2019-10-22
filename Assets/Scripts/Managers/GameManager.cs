@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
         if (totalTime<=0)
         {
             SceneManager.LoadScene("EndScreen");
-//            if (scoreLeft > scoreRight) Toolbox.GetInstance().GetManager<DisplayManager>().textArray[2].enabled = false;
-//            else Toolbox.GetInstance().GetManager<DisplayManager>().textArray[1].enabled = false;
         }
     }
 
@@ -47,16 +45,12 @@ public class GameManager : MonoBehaviour
         scoreLeft++;
 
         Toolbox.GetInstance().GetManager<DisplayManager>().textArray[0].text = scoreLeft.ToString();
-
-        //        DisplayManager.textArray[0].text = scoreLeft.ToString();
-        //        DisplayManager.ShowHUDLeft(scoreLeft.ToString());
     }
 
     public void AddScoreRight()
     {
         scoreRight++;
         Toolbox.GetInstance().GetManager<DisplayManager>().textArray[2].text = scoreRight.ToString();
-        //      DisplayManager.ShowHUDRight(scoreRight.ToString());
     }
 
     void Update()
