@@ -29,13 +29,13 @@ public class SpawnCube : MonoBehaviour
             {
                 fish[i].GetComponent<Attack>().current = Attack.FishSide.LeftFish;
                 fish[i].gameObject.tag = "LeftFish";
-                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+//                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
             else
             {
                 fish[i].GetComponent<Attack>().current = Attack.FishSide.RightFish;
                 fish[i].gameObject.tag = "RightFish";
-                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+//                fish[i].GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
         }
     }
