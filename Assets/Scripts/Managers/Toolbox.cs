@@ -27,6 +27,7 @@ public class Toolbox : MonoBehaviour
             Destroy(this);
         }
 
+        CreateManager<AudioManager>();
         CreateManager<DisplayManager>();
         CreateManager<GameManager>();
     }

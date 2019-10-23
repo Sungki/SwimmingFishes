@@ -39,6 +39,72 @@ public class SelectControl : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (this.gameObject.tag == "LeftFish")
+            {
+                if (countFish == 1) current = Control.Keyboard_WASD;
+                else current = Control.Mouse;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (this.gameObject.tag == "LeftFish")
+            {
+                if (countFish == 1) current = Control.XboxController_1_Left;
+                else current = Control.XboxController_1_Right;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (this.gameObject.tag == "LeftFish")
+            {
+
+                if (countFish == 1) current = Control.XboxController_2_Left;
+                else current = Control.XboxController_2_Right;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (this.gameObject.tag == "LeftFish")
+            {
+                current = Control.AI;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            if (this.gameObject.tag == "RightFish")
+            {
+                if (fishScale == 0.3f) current = Control.Keyboard_WASD;
+                else current = Control.Mouse;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            if (this.gameObject.tag == "RightFish")
+            {
+                if (fishScale == 0.3f) current = Control.XboxController_1_Left;
+                else current = Control.XboxController_1_Right;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            if (this.gameObject.tag == "RightFish")
+            {
+
+                if (fishScale == 0.3f) current = Control.XboxController_2_Left;
+                else current = Control.XboxController_2_Right;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            if (this.gameObject.tag == "RightFish")
+            {
+                current = Control.AI;
+            }
+        }
+
         mv.move = Vector3.zero;
 
         switch (current)

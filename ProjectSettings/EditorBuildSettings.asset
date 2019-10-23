@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/4FishesOffenseGym.unity
+    path: Assets/Scenes/4FishesFinalGym.unity
     guid: 276e1cab60e8d9740a1b3984d98661f5
-  - enabled: 1
-    path: Assets/Scenes/EndScreen.unity
-    guid: e8a28cca66d3b4348af84a9e23017257
   m_configObjects: {}

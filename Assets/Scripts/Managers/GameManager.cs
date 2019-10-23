@@ -8,8 +8,17 @@ public class GameManager : MonoBehaviour
     private SceneState currentState = 0;
     private int scoreLeft = 0;
     private int scoreRight = 0;
+    private AudioSource audioSource;
+
+    public int countSupporter = 7;
 
     int totalTime = 60;
+
+    private void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.5f;
+    }
 
     void ReduceTime()
     {
@@ -17,6 +26,7 @@ public class GameManager : MonoBehaviour
         Toolbox.GetInstance().GetManager<DisplayManager>().textArray[1].text = totalTime.ToString();
         if (totalTime<=0)
         {
+            audioSource.PlayOneShot(Toolbox.GetInstance().GetManager<AudioManager>().Win);
             SceneManager.LoadScene("EndScreen");
         }
     }
@@ -43,14 +53,15 @@ public class GameManager : MonoBehaviour
     public void AddScoreLeft()
     {
         scoreLeft++;
-
         Toolbox.GetInstance().GetManager<DisplayManager>().textArray[0].text = scoreLeft.ToString();
+        audioSource.PlayOneShot(Toolbox.GetInstance().GetManager<AudioManager>().DefenderScore);
     }
 
     public void AddScoreRight()
     {
         scoreRight++;
         Toolbox.GetInstance().GetManager<DisplayManager>().textArray[2].text = scoreRight.ToString();
+        audioSource.PlayOneShot(Toolbox.GetInstance().GetManager<AudioManager>().OffenderScore);
     }
 
     void Update()

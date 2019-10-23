@@ -11,7 +11,7 @@ public class SpawnCube : MonoBehaviour
     private AudioSource audioSource;
 
     public float waitingTime = 15.0f;
-    bool canAttack = true;
+    bool ableMaking = true;
 
     void Start()
     {
@@ -73,6 +73,8 @@ public class SpawnCube : MonoBehaviour
             case SelectControl.Control.AI:
                 break;
         }
+
+        if (Toolbox.GetInstance().GetManager<GameManager>().countSupporter == 0) ableMaking = false;
     }
 
     void Keyboard()
@@ -146,11 +148,11 @@ public class SpawnCube : MonoBehaviour
 
     void CreateCube()
     {
-        if(canAttack)
+        if(ableMaking)
         {
-            canAttack = false;
+            ableMaking = false;
             ps.Stop();
-            audioSource.Play();
+            audioSource.PlayOneShot(Toolbox.GetInstance().GetManager<AudioManager>().Nest);
             Invoke("CanAttack", waitingTime);
             Instantiate(sc.cube, transform.position, Quaternion.identity);
         }
@@ -158,7 +160,7 @@ public class SpawnCube : MonoBehaviour
 
     void CanAttack()
     {
-        canAttack = true;
+        ableMaking = true;
         ps.Play();
     }
 }

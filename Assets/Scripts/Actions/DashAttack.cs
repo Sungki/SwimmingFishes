@@ -163,7 +163,7 @@ public class DashAttack : MonoBehaviour
         {
             canAttack = false;
             ps.Stop();
-            audioSource.Play();
+            audioSource.PlayOneShot(Toolbox.GetInstance().GetManager<AudioManager>().Dash);
             Invoke("CanAttack", waitingTime);
             sc.dash = 20f;
             for (int i = 0; i < sc.countFish; i++)
