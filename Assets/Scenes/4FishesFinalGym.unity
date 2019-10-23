@@ -12367,7 +12367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dash: 0
-  current: 8
+  current: 2
   prefab: {fileID: 1442488952756722506, guid: 76b8a4d7ae45cba4eb1acfb6ebb0274c, type: 3}
   cube: {fileID: 661345978951920438, guid: a970a1e56fc2351408ca81826e46aa6e, type: 3}
   countFish: 1
@@ -17328,7 +17328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dash: 0
-  current: 8
+  current: 3
   prefab: {fileID: 1442488952756722506, guid: 76b8a4d7ae45cba4eb1acfb6ebb0274c, type: 3}
   cube: {fileID: 661345978951920438, guid: a970a1e56fc2351408ca81826e46aa6e, type: 3}
   countFish: 1
